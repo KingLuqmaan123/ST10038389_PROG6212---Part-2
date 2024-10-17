@@ -109,3 +109,28 @@ Updated the Code in ViewClaims Page:
 -------------------------------------
 ![image](https://github.com/user-attachments/assets/bd9beedb-c8d0-4075-abc1-21515de47a79)
 
+Screenshot of all Commits Created:
+----------------------------------
+![image](https://github.com/user-attachments/assets/4fc7d879-bc53-4eb9-abce-793b2873d427)
+
+Explain How to the User OR Marker how to run your local Database:
+--------------------------------------------------------------------
+•	Open Visual Studio.
+•	Open your MVC Project.
+•	Click on “View”.
+•	Scroll down till you see “SQL Server Object Explorer”.
+•	Click it.
+•	It will then open the SQL Server Object Explorer, and you can see your Local Database Server.
+•	Right-click on the local Database and click on Properties to view the Connection string.
+•	Go back to the explorer in the SQL Server, Open the Folder Database, open system databases, then open master file, then open Tables Folder. 
+•	You will then see your dbo.Claims database where it stores all the user's data from the web application.
+•	If you right click on “dbo.Claims” and click view designer, it will show you the design interface or SQL code of this Table.
+
+How to Update the Database and its Migrations:
+------------------------------------------------
+•	To Update the Database, Go to Tools in the top panel of the project, scroll down to NuGet Package Manager and hover over it and another panel will open and click on Package manager console to run the commands to and update the database every time you update the claims model codes or your controller’s code.
+
+
+
+
+
