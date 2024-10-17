@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ST10038389_PROG6212___Part_2.Models.Claim>
+@{
+    ViewData["Title"] = "View Claims"; 
+}
+<h1>View Claims</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Lecturer Name</th>
+            <th>Lecturer Surname</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Additional Notes</th>
+            <th>Document</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var claim in Model)
+            {
+                <tr>
+                    <td>@claim.LecturerName</td>
+                    <td>@claim.LecturerSurname</td>
+                    <td>@claim.HoursWorked</td>
+                    <td>@claim.HourlyRate</td>
+                    <td>@claim.AdditionalNotes</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(claim.SupportingDocumentPath))
+                        {
+                            <a href="@Url.Content("~/uploads/" + claim.SupportingDocumentPath)" target="_blank">View Document</a>
+                        }
+                        else
+                        {
+                            <span>No Document</span>
+                        }
+                    </td>
+                    <td>@claim.Status</td>
+                    <td>
+                        @if (claim.Status == "Pending")
+                        {
+                            <form asp-action="Approve" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@claim.Id" />
+                                <button class="approve-button">Approve Claim</button>
+                            </form>
+                            <form asp-action="Reject" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@claim.Id" />
+                                <button class="reject-button">Reject Claim</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="8" class="text-center">No claims available.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+}
+<!--View Claims Page- Views all the users data that he has entered on the submit a claim page. -->
+<!--END OF FILE-->

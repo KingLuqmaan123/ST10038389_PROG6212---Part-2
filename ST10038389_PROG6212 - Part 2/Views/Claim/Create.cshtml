@@ -1,0 +1,56 @@
+﻿@model ST10038389_PROG6212___Part_2.Models.Claim
+@{
+    ViewData["Title"] = "Create a Claim";
+}
+<h1>Submit a Claim</h1>
+<form asp-action="Create" asp-controller="Claims" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="LecturerName"></label>
+        <input asp-for="LecturerName" class="form-control" required />
+        <span asp-validation-for="LecturerName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LecturerSurname"></label>
+        <input asp-for="LecturerSurname" class="form-control" required />
+        <span asp-validation-for="LecturerSurname" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="HoursWorked"></label>
+        <input asp-for="HoursWorked" class="form-control" type="number" min="0" step="0.01" required />
+        <span asp-validation-for="HoursWorked" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="HourlyRate"></label>
+        <input asp-for="HourlyRate" class="form-control" type="number" min="0" step="0.01" required />
+        <span asp-validation-for="HourlyRate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AdditionalNotes"></label>
+        <textarea asp-for="AdditionalNotes" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="AdditionalNotes" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="SupportingDocument"></label>
+        <input asp-for="SupportingDocument" class="form-control" type="file" required />
+        <span asp-validation-for="SupportingDocument" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Claim</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<!--Create A Claim Page:-->
+<!--On this Page the User will fill in details.-->
+<!--After filling in the details in the input fields, the user can click the button "Submit Claim"-->
+<!--After the click of the button, the data will be sent to the local database in the project to store in tables.-->
+<!--User can then view his data/details on the View Claims Page.-->
+<!--END OF FILE-->
