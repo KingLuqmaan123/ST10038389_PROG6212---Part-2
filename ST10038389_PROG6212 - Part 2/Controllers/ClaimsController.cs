@@ -2,7 +2,7 @@
 using ST10038389_PROG6212___Part_2.Data;
 using ST10038389_PROG6212___Part_2.Models;
 using Microsoft.EntityFrameworkCore;
-using System.IO; // For file handling
+using System.IO; 
 using System.Threading.Tasks;
 
 namespace ST10038389_PROG6212___Part_2.Controllers
@@ -109,15 +109,15 @@ namespace ST10038389_PROG6212___Part_2.Controllers
         {
             if (id != claim.Id)
             {
-                return NotFound(); // Return 404 if the ID does not match the claim
+                return NotFound(); 
             }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(claim); // Update the claim in the context
-                    await _context.SaveChangesAsync(); // Save changes asynchronously
+                    _context.Update(claim); 
+                    await _context.SaveChangesAsync(); 
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -218,3 +218,5 @@ namespace ST10038389_PROG6212___Part_2.Controllers
         }
     }
 }
+//ClaimsController File Handles all the Claims from the Users.
+//ClaimsController allows users to input data and store them in the local database.
